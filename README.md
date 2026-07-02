@@ -29,20 +29,20 @@ The technical optimization of parallel data distribution has transitioned from s
 
 Data Parallelism frameworks are strictly categorized based on how memory boundaries are partitioned and how parameter arrays are loaded across distributed devices.
 
-### A. Data Parallel (DP / PyTorch Native Baseline)
-*   **Mechanism:** Single-process, multi-threaded framework operating on a single host node. It shards a mini-batch across local GPUs, but duplicates full execution states over threads, bottlenecked severely by Python's Global Interpreter Lock (GIL).
-*   **Cons:** Highly unoptimized; obsolete for large-scale foundation pre-training loops.
+- ### A. Data Parallel (DP / PyTorch Native Baseline)
+	*   **Mechanism:** Single-process, multi-threaded framework operating on a single host node. It shards a mini-batch across local GPUs, but duplicates full execution states over threads, bottlenecked severely by Python's Global Interpreter Lock (GIL).
+	*   **Cons:** Highly unoptimized; obsolete for large-scale foundation pre-training loops.
 
-### B. Distributed Data Parallel (DDP)
-*   **Mechanism:** Multi-process paradigm where each individual GPU acts as a dedicated standalone worker process. Communication occurs strictly over optimized inter-node connections (e.g., NCCL over InfiniBand switches), wrapping the backward loop inside an automated `All-Reduce` gradient summation mask.
-*   **Pros:** Exceptional scaling laws for models whose entire parameter and optimizer footprint fits inside the VRAM boundary of a single standalone GPU.
+- ### B. Distributed Data Parallel (DDP)
+	*   **Mechanism:** Multi-process paradigm where each individual GPU acts as a dedicated standalone worker process. Communication occurs strictly over optimized inter-node connections (e.g., NCCL over InfiniBand switches), wrapping the backward loop inside an automated `All-Reduce` gradient summation mask.
+	*   **Pros:** Exceptional scaling laws for models whose entire parameter and optimizer footprint fits inside the VRAM boundary of a single standalone GPU.
 
-### C. Fully Sharded Data Parallel (FSDP / ZeRO-Stage 3)
-*   **Mechanism:** Completely shards the model state array into three distinct execution stages:
-    1.  *Stage 1:* Shards only the massive **Optimizer States** (saving up to $4\times$ memory).
-    2.  *Stage 2:* Shards both the Optimizer States and the **Gradients** concurrently.
-    3.  *Stage 2:* Shards the Optimizer States, Gradients, and **Model Parameters** completely.
-*   **Pros:** Converts data parallelism into a hybrid memory-saving engine, allowing large architectures to run massive mini-batch sizes cheaply.
+- ### C. Fully Sharded Data Parallel (FSDP / ZeRO-Stage 3)
+	*   **Mechanism:** Completely shards the model state array into three distinct execution stages:
+	    1.  *Stage 1:* Shards only the massive **Optimizer States** (saving up to $4\times$ memory).
+	    2.  *Stage 2:* Shards both the Optimizer States and the **Gradients** concurrently.
+	    3.  *Stage 2:* Shards the Optimizer States, Gradients, and **Model Parameters** completely.
+	*   **Pros:** Converts data parallelism into a hybrid memory-saving engine, allowing large architectures to run massive mini-batch sizes cheaply.
 
 ---
 
