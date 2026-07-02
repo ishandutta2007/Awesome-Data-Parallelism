@@ -1,11 +1,15 @@
-# Awesome-Data-Parallelism
-## Data Parallelism in AI: History, Progression, Variants, & Applications
+<p align="center">
+  <img src="assets/banner.svg" alt="Awesome Data Parallelism Banner" width="100%">
+</p>
+
+# 🚀 Awesome Data Parallelism 🚀
+## 📚 Data Parallelism in AI: History, Progression, Variants, & Applications
 
 Data Parallelism (DP) is a core distributed hardware training framework designed to scale up deep learning operations across multiple computing nodes (GPUs/TPUs). When an artificial intelligence model’s dataset is too massive to process on a single hardware card within a reasonable timeframe, Data Parallelism shards the training batch across a cluster of parallel devices. Each independent worker node hosts a complete copy of the model weights, executes local forward and backward passes over its allocated data slice, and synchronizes the resulting mathematical gradients using low-level collective communication primitives (`All-Reduce`) before updating parameters simultaneously. It represents the most ubiquitous paradigm for accelerating the optimization workflows of modern Large Language Models and foundational Vision Transformers.
 
 ---
 
-## 1. The Macro Chronological Evolution
+## 📅 1. The Macro Chronological Evolution
 
 The technical optimization of parallel data distribution has transitioned from synchronous master-worker updates to fully decentralized ringing topologies and memory-sharded parameter-offloading frameworks.
 
@@ -24,7 +28,7 @@ flowchart LR
 
 ---
 
-## 2. Core Functional & Architectural Variants
+## 🏗️ 2. Core Functional & Architectural Variants
 
 Data Parallelism frameworks are strictly categorized based on how memory boundaries are partitioned and how parameter arrays are loaded across distributed devices.
 
@@ -36,7 +40,7 @@ Data Parallelism frameworks are strictly categorized based on how memory boundar
 
 ---
 
-## 3. Communication Operations & Latency Mechanics
+## ⚡ 3. Communication Operations & Latency Mechanics
 
 To synchronize parameters across independent data shards, distributed clusters must continually exchange tracking calculations using specialized collective primitives.
 
@@ -56,7 +60,7 @@ flowchart LR
 
 ---
 
-## 4. Production Engineering Challenges & Hardware Solutions
+## 🛠️ 4. Production Engineering Challenges & Hardware Solutions
 
 Deploying large-scale Data Parallelism pipelines across massive high-performance computing (HPC) clusters introduces severe network bandwidth bottlenecks and straggler issues.
 
@@ -67,7 +71,7 @@ Deploying large-scale Data Parallelism pipelines across massive high-performance
 
 ---
 
-## 5. Frontier Real-World AI Infrastructure Applications
+## 🌐 5. Frontier Real-World AI Infrastructure Applications
 
 | Application Domain | Detailed Infrastructure Pattern | Year | First-Use Paper |
 | :--- | :--- | :--- | :--- |
@@ -77,7 +81,7 @@ Deploying large-scale Data Parallelism pipelines across massive high-performance
 
 ---
 
-## References
+## 📖 References
 1. Dean, J., et al. (2012). Large scale distributed deep networks. *Advances in Neural Information Processing Systems (NeurIPS)*, 25, 1223-1231.
 2. SergiE, A., et al. (2017). Meet Horovod: Uber’s open source distributed deep learning framework for TensorFlow. *Uber Engineering Research Monograph*.
 3. Li, S., et al. (2020). PyTorch DDP: Accelerated distributed data parallel training. *arXiv preprint arXiv:2006.15704*.

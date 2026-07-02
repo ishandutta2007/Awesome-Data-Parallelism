@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a051b"/>
+      <stop offset="50%" stop-color="#0f0c29"/>
+      <stop offset="100%" stop-color="#020005"/>
+    </linearGradient>
+
+    <!-- Glowing Node Gradients -->
+    <radialGradient id="glowPurple" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#bd00ff" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#bd00ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowCyan" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#00f0ff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Text Gradient -->
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f0ff">
+        <animate attributeName="stop-color" values="#00f0ff;#ff007f;#00f0ff" dur="6s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="50%" stop-color="#bd00ff">
+        <animate attributeName="stop-color" values="#bd00ff;#00f0ff;#bd00ff" dur="6s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#ff007f">
+        <animate attributeName="stop-color" values="#ff007f;#bd00ff;#ff007f" dur="6s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <style>
+    .title {
+      font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-weight: 900;
+      font-size: 64px;
+      fill: url(#textGrad);
+      letter-spacing: 4px;
+    }
+    .subtitle {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-weight: 500;
+      font-size: 20px;
+      fill: #a0aec0;
+      letter-spacing: 6px;
+    }
+    .pulse {
+      animation: pulse 4s infinite alternate;
+    }
+    .float {
+      animation: float 6s infinite ease-in-out;
+    }
+    .float-delay {
+      animation: float 8s infinite ease-in-out;
+      animation-delay: 2s;
+    }
+    @keyframes pulse {
+      0% { r: 8px; opacity: 0.7; }
+      100% { r: 16px; opacity: 0.3; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+
+  <!-- Background -->
+  <rect width="1200" height="400" fill="url(#bgGrad)" />
+  <rect width="1200" height="400" fill="url(#grid)" />
+
+  <!-- Abstract Parallel Nodes Visualization -->
+  <g class="float" opacity="0.6">
+    <!-- Lines connecting nodes -->
+    <line x1="200" y1="100" x2="400" y2="80" stroke="rgba(0, 240, 255, 0.3)" stroke-dasharray="5 5" stroke-width="2" />
+    <line x1="400" y1="80" x2="600" y2="120" stroke="rgba(189, 0, 255, 0.3)" stroke-dasharray="5 5" stroke-width="2" />
+    <line x1="600" y1="120" x2="800" y2="90" stroke="rgba(255, 0, 127, 0.3)" stroke-dasharray="5 5" stroke-width="2" />
+    <line x1="800" y1="90" x2="1000" y2="150" stroke="rgba(0, 240, 255, 0.3)" stroke-dasharray="5 5" stroke-width="2" />
+
+    <line x1="150" y1="300" x2="350" y2="280" stroke="rgba(189, 0, 255, 0.3)" stroke-width="1.5" />
+    <line x1="350" y1="280" x2="550" y2="330" stroke="rgba(0, 240, 255, 0.3)" stroke-width="1.5" />
+    <line x1="550" y1="330" x2="750" y2="290" stroke="rgba(255, 0, 127, 0.3)" stroke-dasharray="3 3" stroke-width="1.5" />
+    <line x1="750" y1="290" x2="950" y2="320" stroke="rgba(189, 0, 255, 0.3)" stroke-width="1.5" />
+
+    <!-- Glow background behind circles -->
+    <circle cx="200" cy="100" r="40" fill="url(#glowCyan)" />
+    <circle cx="400" cy="80" r="50" fill="url(#glowPurple)" />
+    <circle cx="600" cy="120" r="40" fill="url(#glowCyan)" />
+    <circle cx="800" cy="90" r="45" fill="url(#glowPurple)" />
+    <circle cx="1000" cy="150" r="50" fill="url(#glowCyan)" />
+
+    <!-- Actual nodes -->
+    <circle cx="200" cy="100" r="8" fill="#00f0ff" />
+    <circle cx="400" cy="80" r="10" fill="#bd00ff" />
+    <circle cx="600" cy="120" r="7" fill="#00f0ff" />
+    <circle cx="800" cy="90" r="9" fill="#ff007f" />
+    <circle cx="1000" cy="150" r="10" fill="#00f0ff" />
+  </g>
+
+  <!-- Title & Subtitle -->
+  <g transform="translate(600, 210)" text-anchor="middle">
+    <text class="title" y="0">AWESOME DATA PARALLELISM</text>
+    <text class="subtitle" y="55">SCALING DEEP LEARNING WORKLOADS AT MASSIVE SCALE</text>
+  </g>
+
+  <!-- Accent bottom border gradient line -->
+  <rect x="0" y="394" width="1200" height="6" fill="url(#textGrad)" />
+</svg>
