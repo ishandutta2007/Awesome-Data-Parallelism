@@ -2,7 +2,18 @@
   <img src="assets/banner.svg" alt="Awesome Data Parallelism Banner" width="100%">
 </p>
 
+<!--
+SEO Metadata:
+Description: Curated resource list for Data Parallelism in AI, covering parameter servers, Ring All-Reduce, ZeRO, FSDP, DDP, and distributed training mechanics.
+Keywords: Data Parallelism, Distributed Training, PyTorch DDP, FSDP, ZeRO, Parameter Server, Ring All-Reduce, Machine Learning, AI Infrastructure, Deep Learning Scaling
+-->
+
 # 🚀 Awesome Data Parallelism 🚀
+
+<p align="center">
+  <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a><a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
+</p>
+
 ## 📚 Data Parallelism in AI: History, Progression, Variants, & Applications
 
 Data Parallelism (DP) is a core distributed hardware training framework designed to scale up deep learning operations across multiple computing nodes (GPUs/TPUs). When an artificial intelligence model’s dataset is too massive to process on a single hardware card within a reasonable timeframe, Data Parallelism shards the training batch across a cluster of parallel devices. Each independent worker node hosts a complete copy of the model weights, executes local forward and backward passes over its allocated data slice, and synchronizes the resulting mathematical gradients using low-level collective communication primitives (`All-Reduce`) before updating parameters simultaneously. It represents the most ubiquitous paradigm for accelerating the optimization workflows of modern Large Language Models and foundational Vision Transformers.
