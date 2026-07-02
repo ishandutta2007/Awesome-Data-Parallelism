@@ -9,7 +9,7 @@ Data Parallelism (DP) is a core distributed hardware training framework designed
 
 The technical optimization of parallel data distribution has transitioned from synchronous master-worker updates to fully decentralized ringing topologies and memory-sharded parameter-offloading frameworks.
 
-```
+```mermaid
 [Parameter Server Frameworks (2012)] ───> [Synchronous Ring All-Reduce (2017)] ───> [Zero Redundancy Memory Sharding (ZeRO / FSDP, 2020+)](Master-Worker Network Bottlenecks)          (Decentralized Ring Bus Communication)          (Eliminating Model Copy VRAM Redundancies)
 ```
 
