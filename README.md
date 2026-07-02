@@ -53,7 +53,15 @@ Data Parallelism frameworks are strictly categorized based on how memory boundar
 
 To synchronize parameters across independent data shards, distributed clusters must continually exchange tracking calculations using specialized collective primitives.
 
-[Distributed Forward Pass] ───> [Backward Loop Initiated] ───> [Overlap Reduce-Scatter with Backward Math] ───> [All-Gather Model Parameters]
+
+```mermaid
+flowchart LR
+    A["Distributed Forward Pass"]
+    --> B["Backward Pass Initiated"]
+    --> C["Overlap Reduce-Scatter with Backward Computation"]
+    --> D["All-Gather Model Parameters"]
+```
+
 *   **All-Reduce Primitives**
     *   *The Math:* Combines data arrays across all processes (e.g., summing gradients calculated over distinct data shards) and redistributes the clean, averaged global result uniformly back to every single process node.
 *   **Reduce-Scatter Primitives**
