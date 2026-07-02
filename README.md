@@ -107,6 +107,18 @@ To advance this documentation repository, structural setup, or architectural dep
 * Generate a **comprehensive Markdown table** explicitly comparing standard Distributed Data Parallel (DDP), Fully Sharded Data Parallel (FSDP), Pipeline Parallelism (PP), and Tensor Parallelism (TP) across communication frequencies, minimal network bandwidth demands, memory efficiency scaling, and maximum operational model parameter caps.
 * Establish a **performance profiling notebook using DeepSpeed** to track the exact computational throughput, communication-to-computation overlap ratios, and VRAM memory saving bounds achieved when shifting a distributed training run across ZeRO Stage 1, Stage 2, and Stage 3 parameter configurations.
 
+## Star History
+
+<div align="center">
+<a href="https://www.star-history.com/?repos=ishandutta2007%2FAwesome-Data-Parallelism&type=date&legend=bottom-right">
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=ishandutta2007/Awesome-Data-Parallelism&type=date&theme=dark&legend=bottom-right" />
+<source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=ishandutta2007/Awesome-Data-Parallelism&type=date&legend=bottom-right" />
+<img alt="Star History Chart" src="https://api.star-history.com/chart?repos=ishandutta2007/Awesome-Data-Parallelism&type=date&legend=bottom-right" />
+</picture>
+</a>
+</div>
+
 ***
 
 **Proactive Repository Follow-Ups:**
